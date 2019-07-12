@@ -4,7 +4,7 @@ import MovieList from './components/MovieList'
 import LoadMore from './components/LoadMore'
 import Navigation from './components/Navigation'
 import Loader from './components/Loader'
-import './styles/main.scss'
+import './assets/styles/main.scss'
 
 import { url, setData, setTotalPages, setDefaultVisible, loadMore, smoothScroll, promise, nextPage, prevPage, isLoading, isError, errorMsg } from './helpers'
 import { initialState } from './state/initialState'
@@ -48,7 +48,6 @@ class App extends Component {
 
   handleScrollTop = () => {
     smoothScroll('#root', 1500)
-    console.log(process.env)
   }
 
   handleNextPage = () => {
