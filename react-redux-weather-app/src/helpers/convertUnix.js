@@ -1,0 +1,1 @@
+export const convertUnix = date => new Date(date * 1000)

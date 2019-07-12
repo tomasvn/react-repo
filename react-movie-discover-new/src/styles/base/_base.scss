@@ -1,0 +1,32 @@
+@import './normalize';
+
+html {
+    box-sizing: border-box;
+    font-size: $html-size;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    line-height: 1.5;
+    font-family: $font-stack-2;
+}
+
+img {
+    display: block;
+    max-width: $full-width;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: $font-stack-1;
+}

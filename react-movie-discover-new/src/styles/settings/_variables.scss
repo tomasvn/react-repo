@@ -1,0 +1,42 @@
+//================
+//== #VARIABLES ==
+//================
+$html-size: 62.5%;
+
+$screen-xs: 480px;
+$screen-sm: 768px;
+$screen-md: 992px;
+$screen-lg: 1200px;
+
+// So media queries don't overlap when required, provide a maximum
+$screen-xs-max: ($screen-sm - 1);
+$screen-sm-max: ($screen-md - 1);
+$screen-md-max: ($screen-lg - 1);
+
+//===============
+//== #SPACINGS ==
+//===============
+$sizing: 10px;
+
+$xs-sizing: $sizing * 2; //20
+$sm-sizing: $sizing * 4; //40
+$m-sizing: $sizing * 6; //60
+$l-sizing: $sizing * 8; //80
+$xl-sizing: $sizing * 10; //100
+
+//=============
+//== #RADIUS ==
+//=============
+$radius: 3px;
+
+//=================
+// ==#FONT STACK ==
+//=================
+
+$font-stack-1: 'Playfair Display', serif;
+$font-stack-2: 'Fauna One', serif;
+
+//============
+//== #OTHER ==
+//============
+$full-width: 100%;

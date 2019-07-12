@@ -1,0 +1,21 @@
+.movie-list-item {
+    display: flex;
+    padding: $sizing;
+}
+
+.movie-list-item__title {
+    font-size: 1.8rem;
+}
+
+.movie-list-item__description {
+    @include tracking(50);
+    font-size: 1.5rem;
+}
+
+.movie-list-item__poster {
+    width: 130px;
+
+    @include respond-to(xs) {
+        display: none;
+    }
+}

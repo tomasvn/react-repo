@@ -1,0 +1,1 @@
+export const isFetchingData = isFetching => ({ isFetching })

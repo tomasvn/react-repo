@@ -1,0 +1,11 @@
+.movie-label {
+    font-family: $font-stack-2;
+    padding: ($sizing / 5) 8px;
+    border-radius: $radius;
+    border: 1px solid;
+    text-transform: uppercase;
+
+    &:not(:last-child) {
+        margin-right: ($sizing / 2);
+    }
+}
