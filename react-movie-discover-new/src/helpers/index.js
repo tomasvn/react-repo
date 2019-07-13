@@ -26,7 +26,7 @@ export const smoothScroll = (target, duration) => {
     if(timeElapsed < duration) requestAnimationFrame(animation)
   }
 
-  let easeInOutQuad = Math.easeInOutQuad = (t, b, c, d) => {
+  const easeInOutQuad = Math.easeInOutQuad = (t, b, c, d) => {
       t /= d/2
       if (t < 1) return c/2*t*t + b
       t--

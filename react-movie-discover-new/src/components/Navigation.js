@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import NextPage from './NextPage'
 import PrevPage from './PrevPage'
 import PageCounter from './PageCounter'

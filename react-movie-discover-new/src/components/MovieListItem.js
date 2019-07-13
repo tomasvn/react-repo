@@ -14,7 +14,7 @@ const MovieListItem = ({poster, title, description, rating, date, lang}) => {
         <div className="movie-details">
           <strong className="movie-label movie-details__rating">{rating}</strong>
           <strong className="movie-label movie-details__release-date">{date}</strong>
-          <strong className="movie-label movie-details__lang">{lang}</strong>
+          <img className="movie-label movie-details__lang" src={`/assets/flags/${lang}.svg`} alt={lang}/>
         </div>
       </div>
     </div>

@@ -4,6 +4,10 @@ import MovieList from './components/MovieList'
 import LoadMore from './components/LoadMore'
 import Navigation from './components/Navigation'
 import Loader from './components/Loader'
+import Menu from './components/Menu'
+import Logo from './components/Logo'
+import MenuNavigation from './components/MenuNavigation'
+import LangSwitcher from './components/LangSwitcher'
 import './assets/styles/main.scss'
 
 import { url, setData, setTotalPages, setDefaultVisible, loadMore, smoothScroll, promise, nextPage, prevPage, isLoading, isError, errorMsg } from './helpers'
@@ -32,7 +36,7 @@ class App extends Component {
       this.setState(isLoading(false))
       this.setState(setData(results))
       this.setState(setTotalPages(total_pages))
-      // console.log(req)
+      console.log(req)
     
     } catch(e) {
       this.setState(isLoading(false))
@@ -65,7 +69,7 @@ class App extends Component {
   }
 
   render() {
-    const { isVisible, isLoading, isError, errMsg, data, page, totalPages } = this.state
+    const { isVisible, isLoading, isError, errMsg, data, page, totalPages, lang } = this.state
 
     if (isLoading) {
       return <Loader />
@@ -74,6 +78,11 @@ class App extends Component {
       
       return(
         <MovieView>
+          <Menu>
+            <Logo />
+            <MenuNavigation />
+            <LangSwitcher langOptions={lang} onToggle={() => console.log('click')} />
+          </Menu>
           <MovieList isVisible={isVisible} data={data} error={isError} msg={errMsg} />
           {
             isVisible < data.length

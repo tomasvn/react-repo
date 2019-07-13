@@ -7,4 +7,5 @@ export const initialState = Object.freeze({
   isError: false,
   isDisabled: true,
   errMsg: undefined,
+  lang: ['en', 'cs', 'pl', 'de', 'sk'],
 })
