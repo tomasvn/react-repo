@@ -1,5 +1,7 @@
 import { API_KEY } from '../api'
 
+// export const url = page => `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&page=${page}&lang=cs`
+
 export const url = page => `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&page=${page}`
 export const setData = data => ({ data })
 export const setTotalPages = totalPages => ({ totalPages })
