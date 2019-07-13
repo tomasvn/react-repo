@@ -1,13 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const LangSwitcher = ({langToggle, onToggle}) => {
+const LangSwitcher = ({langOptions, onToggle}) => {
   return(
     <div>
-      <button onToggle={onToggle}>{langToggle[0]}</button>
+      <button onToggle={onToggle}>{langOptions[0]}</button>
       <ul>
         {
-          langToggle.slice(1).map((item, index) => (
+          langOptions.slice(1).map((item, index) => (
             <li key={index}>{item}</li>
           ))
         }
