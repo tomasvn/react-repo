@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 const Menu = ({children}) => {
   return(
-    <header>{children}</header>
+    <header className="menu-header">{children}</header>
   )
 }
 
