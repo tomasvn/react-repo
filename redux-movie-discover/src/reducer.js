@@ -1,6 +1,6 @@
 /**
  * 1. We are returning an state object
- * 2. Make sure to return to always return default state
+ * 2. Make sure to always return default state
  */
 
 /**
