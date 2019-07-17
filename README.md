@@ -12,12 +12,13 @@ learn to utilize ES6 more, work with different API, make API calls...
 * API - Open Weather: http://openweathermap.org/
 * Learning REDUX
 
-### 3. React Movie DB [WIP]
+### 3. React Movie DB [DONE]
 * API - The Movie DB: https://www.themoviedb.org/documentation/api
+* Basic styling, connect sass with CRA, need to add more styles later
+* Deep dive into redux, relearning again
 
-### TODO React Movie DB
-* [ ] Add styling
-* [ ] Use React Router?
-* [ ] Create Sub App for discovering TV shows
+### 4. React Movie Redux [WIP]
+* Try to create store, and connect react with redux, use redux thunk for managing fetched data
+* Learn more about - actions, reducers, selectors, dispatching actions to store, creating store etc.
 
 (?) Future project
