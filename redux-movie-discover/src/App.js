@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { fetchData } from './fetch'
+import { getData } from './selectors'
 
 class App extends Component {
   
@@ -13,8 +14,15 @@ class App extends Component {
   }
 
   render() {
+    const { data } = this.props
     return(
-      <div>Test</div>
+      <div>
+        {
+          data.map((item, index) => (
+            <div key={index}>{item.title}</div>
+          ))
+        }
+      </div>
     )
   }
 }
@@ -27,4 +35,12 @@ const mapDispatchToProps = {
   onFetchData: fetchData,
 }
 
-export default connect(null, mapDispatchToProps)(App);
+/**
+ * When we map state to props
+ * it will be accessible via this.props
+ */
+const mapStateToProps = state => ({
+  data: getData(state)
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
