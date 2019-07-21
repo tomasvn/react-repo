@@ -22,16 +22,19 @@ export const reducer = (state = initialState, action) => {
     case FETCH_START:
       return { //1.
         ...state,
-        isLoading: true
+        isLoading: true,
+        isError: false
       }
     case FETCH_SUCCESS:
       return { //1.
         ...state,
+        isLoading: false,
         data: action.payload
       }
     case FETCH_FAILED:
       return { //1.
         ...state,
+        isLoading: false,
         isError: true
       }
     default: //2.

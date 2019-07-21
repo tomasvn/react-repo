@@ -1,9 +1,10 @@
 /**
  * Redux thunk action
  * 
+ * Line 7. we are importing all action creators
  */
 
-import { FETCH_START, FETCH_SUCCESS, FETCH_FAILED, fetchStart, fetchSucess, fetchFailed } from './actions'
+import { fetchStart, fetchSucess, fetchFailed } from './actions'
 
 const api = () => `https://api.themoviedb.org/3/discover/movie?api_key=a0ed6f7f6d5a52eedd05ecfa82be5478`
 
@@ -14,7 +15,7 @@ export const fetchData = () => {
     try {
       const req = await fetch(api())
       const res = await req.json()
-      dispatch(fetchSucess(res))
+      dispatch(fetchSucess(res.results))
       console.log(res)
 
     } catch {
