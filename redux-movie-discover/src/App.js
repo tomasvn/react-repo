@@ -1,20 +1,30 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux'
+import { fetchData } from './fetch'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  
+  componentDidMount() {
+    /**
+     * Using desctructive metod to get onFetchData method from props
+     */
+    const { onFetchData } = this.props
+    onFetchData()
+  }
+
+  render() {
+    return(
+      <div>Test</div>
+    )
+  }
 }
 
-export default App;
+/**
+ * When we dispatch it to props
+ * it will be accessible via this.props
+ */
+const mapDispatchToProps = {
+  onFetchData: fetchData,
+}
+
+export default connect(null, mapDispatchToProps)(App);
