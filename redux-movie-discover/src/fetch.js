@@ -15,8 +15,8 @@ export const fetchData = () => {
     try {
       const req = await fetch(api())
       const res = await req.json()
-      dispatch(fetchSucess(res.results))
-      console.log(res)
+      const { results } = res
+      dispatch(fetchSucess(results))
 
     } catch {
       dispatch(fetchFailed())
