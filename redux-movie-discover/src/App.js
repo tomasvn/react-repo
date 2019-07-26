@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
+import Movieview from './components/Movieview'
+import MovieList from './components/MovieList'
+import LoadMore from './components/LoadMore'
+
 import { fetchData } from './fetch'
-import { getData } from './selectors'
+import { loadMore } from './load'
+import { getData, dataVisible } from './selectors'
 
 class App extends Component {
   
@@ -14,15 +19,15 @@ class App extends Component {
   }
 
   render() {
-    const { data } = this.props
+    const { data, dataIsVisible, handleLoadMore } = this.props
+    
     return(
-      <div>
+      <Movieview>
+        <MovieList data={data} isVisible={dataIsVisible} />
         {
-          data.map((item, index) => (
-            <div key={index}>{item.title}</div>
-          ))
+          dataIsVisible < data.length ? <LoadMore onClick={handleLoadMore} name={'Load More'} /> : null
         }
-      </div>
+      </Movieview>
     )
   }
 }
@@ -33,6 +38,7 @@ class App extends Component {
  */
 const mapDispatchToProps = {
   onFetchData: fetchData,
+  handleLoadMore: loadMore,
 }
 
 /**
@@ -40,7 +46,8 @@ const mapDispatchToProps = {
  * it will be accessible via this.props
  */
 const mapStateToProps = state => ({
-  data: getData(state)
+  data: getData(state),
+  dataIsVisible: dataVisible(state)
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

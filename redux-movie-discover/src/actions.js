@@ -20,7 +20,9 @@
 export const FETCH_START = 'FETCH_START'
 export const FETCH_SUCCESS = 'FETCH_SUCCESS'
 export const FETCH_FAILED = 'FETCH_FAILED'
+export const FETCH_LOAD_MORE = 'FETCH_LOAD_MORE'
 
+export const fetchLoadMore = payload => ({ type: FETCH_LOAD_MORE, payload })
 export const fetchStart = () => ({ type: FETCH_START })
 export const fetchSucess = payload => ({ type: FETCH_SUCCESS, payload })
 export const fetchFailed = () => ({ type: FETCH_FAILED })
