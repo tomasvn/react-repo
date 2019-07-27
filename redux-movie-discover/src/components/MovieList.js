@@ -12,7 +12,8 @@ const MovieList = ({data, isVisible}) => {
             title={item.title}
             description={item.overview}
             rating={item.vote_average}
-            lang={item.lang}
+            lang={item.original_language}
+            poster={item.poster_path}
           />
         )
       }
