@@ -15,6 +15,7 @@ class App extends Component {
      * Using desctructive metod to get onFetchData method from props
      */
     const { onFetchData } = this.props
+    console.log('Props object', this.props)
     onFetchData()
   }
 
