@@ -17,7 +17,7 @@ learn to utilize ES6 more, work with different API, make API calls...
 * Basic styling, connect sass with CRA, need to add more styles later
 * Deep dive into redux, relearning again
 
-### 4. React Movie Redux [WIP]
+### 4. React Redux Movie DB [WIP]
 * Try to create store, and connect react with redux, use redux thunk for managing fetched data
 * Learn more about - actions, reducers, selectors, dispatching actions to store, creating store etc.
 
