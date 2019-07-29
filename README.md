@@ -1,4 +1,4 @@
-# React Projects
+# React & Redux Projects
 Basic projects utilizing just React.js
 
 ### Outcome
