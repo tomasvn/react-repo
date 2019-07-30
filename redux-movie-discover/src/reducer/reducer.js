@@ -6,7 +6,7 @@
 /**
  * Importing action types, which we use in switch()
  */
-import { FETCH_START, FETCH_SUCCESS, FETCH_FAILED, FETCH_LOAD_MORE } from './actions'
+import { FETCH_START, FETCH_SUCCESS, FETCH_FAILED, FETCH_LOAD_MORE } from '../actions/actions'
 
 /**
  * Initial State we pass in reducer, and set default value for state

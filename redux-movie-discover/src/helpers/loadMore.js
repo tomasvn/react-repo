@@ -1,4 +1,4 @@
-import { fetchLoadMore } from './actions'
+import { fetchLoadMore } from '../actions/actions'
 
 export const loadMore = () => {
   return dispatch => {

@@ -4,9 +4,8 @@ import Movieview from './components/Movieview'
 import MovieList from './components/MovieList'
 import LoadMore from './components/LoadMore'
 
-import { fetchData } from './fetch'
-import { loadMore } from './load'
-import { getData, dataVisible } from './selectors'
+import { fetchData, loadMore } from './helpers/'
+import { getData, dataVisible } from './selectors/'
 
 class App extends Component {
   
