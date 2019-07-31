@@ -1,1 +1,0 @@
-export const getQueryValue = state => state.query

@@ -1,1 +1,0 @@
-export const setData = data => ({ data })
