@@ -10,7 +10,7 @@ import { setQueryValue, fetchData } from './redux/actions'
 import { getQueryValue } from './redux/selectors'
 
 import { initialState } from './state/initialState'
-import { api, setData, setDate } from './helpers/'
+import { api, setData, setDate } from './helpers'
 
 class App extends Component {
   state = initialState

@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import Movieview from './components/Movieview'
 import MovieList from './components/MovieList'
 import LoadMore from './components/LoadMore'
+import Navigation from './components/Navigation'
 
 import { fetchData, loadMore } from './helpers/'
 import { getData, dataVisible } from './selectors/'
@@ -24,7 +25,7 @@ class App extends Component {
       <Movieview>
         <MovieList data={data} isVisible={dataIsVisible} />
         {
-          dataIsVisible < data.length ? <LoadMore onClick={handleLoadMore} name={'Load More'} /> : null
+          dataIsVisible < data.length ? <LoadMore onClick={handleLoadMore} name={'Load More'} /> : <Navigation prev={'Previous'} next={'Next'}/>
         }
       </Movieview>
     )
