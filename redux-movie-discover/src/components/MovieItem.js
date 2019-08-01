@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const MovieItem = ({title, description, rating, lang, poster, onClick}) => {
+const MovieItem = ({title, description, rating, lang, poster}) => {
   return(
     <div>
       <h3>{title}</h3>

@@ -8,10 +8,24 @@ import Menu from './components/Menu'
 import Logo from './components/Logo'
 import MenuNavigation from './components/MenuNavigation'
 import LangSwitcher from './components/LangSwitcher'
-import './assets/styles/main.scss'
 
-import { url, setData, setTotalPages, setDefaultVisible, loadMore, smoothScroll, promise, nextPage, prevPage, isLoading, isError, errorMsg } from './helpers'
+import {
+  url,
+  setData,
+  setTotalPages,
+  setDefaultVisible,
+  loadMore,
+  smoothScroll,
+  promise,
+  nextPage,
+  prevPage,
+  isLoading,
+  isError,
+  errorMsg 
+} from './helpers'
 import { initialState } from './state/initialState'
+
+import './assets/styles/main.scss'
 
 class App extends Component {
 
