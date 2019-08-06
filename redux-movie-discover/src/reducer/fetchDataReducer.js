@@ -6,7 +6,7 @@ const initialState = Object.freeze({
   isError: false,
 })
 
-export const fetchDataReducer = (state = initialState, action) {
+export const fetchDataReducer = (state = initialState, action) => {
   switch(action.type) {
     case FETCH_START:
       return {

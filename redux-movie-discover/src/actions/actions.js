@@ -22,10 +22,12 @@ export const FETCH_FAILED = 'FETCH_FAILED'
 export const FETCH_LOAD_MORE = 'FETCH_LOAD_MORE'
 export const FETCH_NEXT_PAGE = 'FETCH_NEXT_PAGE'
 export const FETCH_PREV_PAGE = 'FETCH_PREV_PAGE'
+export const FETCH_PAGE = 'FETCH_PAGE'
 
 export const fetchLoadMore = payload => ({ type: FETCH_LOAD_MORE, payload })
 export const fetchStart = () => ({ type: FETCH_START })
 export const fetchSucess = payload => ({ type: FETCH_SUCCESS, payload })
+export const fetchPage = payload => ({ type: FETCH_PAGE, payload })
 export const fetchFailed = () => ({ type: FETCH_FAILED })
 export const fetchNextPage = payload => ({ type: FETCH_NEXT_PAGE, payload })
 export const fetchPrevPage = payload => ({ type: FETCH_PREV_PAGE, payload })

@@ -6,7 +6,7 @@
 /**
  * Importing action types, which we use in switch()
  */
-import { FETCH_START, FETCH_SUCCESS, FETCH_FAILED, FETCH_LOAD_MORE, FETCH_NEXT_PAGE, FETCH_PREV_PAGE } from '../actions/actions'
+import { FETCH_START, FETCH_SUCCESS, FETCH_FAILED, FETCH_LOAD_MORE, FETCH_NEXT_PAGE, FETCH_PREV_PAGE, FETCH_PAGE } from '../actions/actions'
 
 /**
  * Initial State we pass in reducer, and set default value for state
@@ -16,7 +16,7 @@ const initialState = Object.freeze({
   isLoading: false,
   isError: false,
   isVisible: 5,
-  isPage: 1,
+  page: undefined,
 })
 
 export const reducer = (state = initialState, action) => {
@@ -29,8 +29,12 @@ export const reducer = (state = initialState, action) => {
     case FETCH_SUCCESS:
       return { //1.
         ...state,
-        isLoading: false,
         data: action.payload
+      }
+    case FETCH_PAGE:
+      return {
+        ...state,
+        page: action.payload
       }
     case FETCH_LOAD_MORE:
       return {
@@ -45,12 +49,12 @@ export const reducer = (state = initialState, action) => {
       case FETCH_NEXT_PAGE:
         return {
           ...state,
-          isPage: state.isPage += action.payload,
+          page: state.page += action.payload,
         }
       case FETCH_PREV_PAGE:
         return {
           ...state,
-          isPage: state.isPage -= action.payload,
+          page: state.page -= action.payload,
         }
       default: //2.
         return state

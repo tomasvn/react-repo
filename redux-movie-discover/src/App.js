@@ -5,7 +5,7 @@ import MovieList from './components/MovieList'
 import LoadMore from './components/LoadMore'
 import Navigation from './components/Navigation'
 
-import { fetchData, loadMore } from './helpers/'
+import { fetchData, loadMore, nextPage } from './helpers/'
 import { getData, dataVisible } from './selectors/'
 
 class App extends Component {
@@ -19,13 +19,13 @@ class App extends Component {
   }
 
   render() {
-    const { data, dataIsVisible, handleLoadMore } = this.props
+    const { data, dataIsVisible, handleLoadMore, handleNextPage } = this.props
     
     return(
       <Movieview>
         <MovieList data={data} isVisible={dataIsVisible} />
         {
-          dataIsVisible < data.length ? <LoadMore onClick={handleLoadMore} name={'Load More'} /> : <Navigation prev={'Previous'} next={'Next'}/>
+          dataIsVisible < data.length ? <LoadMore onClick={handleLoadMore} name={'Load More'} /> : <Navigation prev={'Previous'} next={'Next'} nextClick={handleNextPage} />
         }
       </Movieview>
     )
@@ -39,6 +39,7 @@ class App extends Component {
 const mapDispatchToProps = {
   onFetchData: fetchData,
   handleLoadMore: loadMore,
+  handleNextPage: nextPage,
 }
 
 /**

@@ -11,8 +11,8 @@ const Navigation = ({prev, next, prevClick, nextClick}) => {
 }
 
 Navigation.propTypes = {
-  prevClick: PropTypes.func.isRequired,
-  nextClick: PropTypes.func.isRequired,
+  prevClick: PropTypes.func,
+  nextClick: PropTypes.func,
   prev: PropTypes.any,
   next: PropTypes.any,
 }

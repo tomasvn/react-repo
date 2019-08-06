@@ -5,7 +5,7 @@ const initialState = Object.freeze({
   isPage: 1,
 })
 
-export const fetchPageReducer = (state = initialState, action) {
+export const fetchPageReducer = (state = initialState, action) => {
   switch(action.type) {
     case FETCH_LOAD_MORE:
       return {
