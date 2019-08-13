@@ -6,6 +6,7 @@ Be comfortable with React syntax,
 learn to utilize ES6 more, work with different API, make API calls...
 
 ### 1. React Autodetect IP [DONE]
+* Stack - React
 * API - IP Detection: https://ipapi.co/
 
 ### 2. React Weather App [WIP]
@@ -13,6 +14,12 @@ learn to utilize ES6 more, work with different API, make API calls...
 * add basic styles
 
 ### 3. Redux Weather App [WIP]
+* Stack - react, redux
+* API - http://openweathermap.org/
+* MVP
+ * User should be able to search for place
+ * User should see fetched data on the front end
+ * It should fetch data based on GEO location
 * needs complete project redo
 
 ### 4. React Movie DB [DONE]
