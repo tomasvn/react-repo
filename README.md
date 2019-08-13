@@ -23,9 +23,10 @@ learn to utilize ES6 more, work with different API, make API calls...
 * needs complete project redo
 
 ### 4. React Movie DB [DONE]
+* Stack - react
 * API - The Movie DB: https://www.themoviedb.org/documentation/api
 * Basic styling, connect sass with CRA, need to add more styles later
-* Deep dive into redux, relearning again
+* ~~Deep dive into redux, relearning again~~
 
 ### 5. Redux Movie DB [WIP]
 * Try to create store, and connect react with redux, use redux thunk for managing fetched data
@@ -41,7 +42,7 @@ learn to utilize ES6 more, work with different API, make API calls...
   * On initial load user should see splash screen explaning the app, it should have redirect link or button
   
   * Possible features to add?
-    * User should mark them as favourites?
-    * Some sort of login for marking favourites?
+    * User should mark music as favourites
+    * Some sort of dashboard for marking favourites, show all favourites
 
 (?) Future project
