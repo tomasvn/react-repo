@@ -45,4 +45,9 @@ learn to utilize ES6 more, work with different API, make API calls...
     * User should mark music as favourites
     * Some sort of dashboard for marking favourites, show all favourites
 
+### 7. Gatsby.js Blog (?)
+* Stack - gatsby.js, react
+* Use gatsby.js blog starter kit
+* Move TIL repo to gatsby blog
+
 (?) Future project
