@@ -1,1 +1,2 @@
-export { FETCH_DATA, FETCH_FAILED, FETCH_SUCCESS } from './actions'
+export * from './actions'
+export * from './actionCreators'

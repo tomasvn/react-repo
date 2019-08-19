@@ -1,24 +1,24 @@
-import { FETCH_START, FETCH_SUCESS, FETCH_FAILED } from "./actions"
+import * as type from "../actions"
 
 const initialState = Object.freeze({
-  data: [],
+  data: {},
   isFetching: false,
   isError: undefined
 })
 
 export const reducer = (state = initialState, action) => {
   switch(action.type) {
-    case FETCH_START:
+    case type.FETCH_START:
       return {
         ...state,
         isFetching: true,
       }
-    case FETCH_SUCESS:
+    case type.FETCH_SUCCESS:
       return {
         ...state,
         data: action.payload,
       }
-    case FETCH_FAILED:
+    case type.FETCH_FAILED:
       return {
         ...state,
         isError: action.payload,
