@@ -1,7 +1,7 @@
 import { url } from './api'
 import { fetchStart, fetchSuccess, fetchFailed } from '../actions'
 
-export const fetch = (city, code) => async dispatch => {
+export const fetchData = (city, code) => async dispatch => {
   dispatch(fetchStart())
 
   try {

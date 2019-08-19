@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { setCity } from '../helpers/setCity'
 import { setCode } from '../helpers/setCode'
-import { fetch } from '../helpers/fetch'
+import { fetchData } from '../helpers/fetch'
 
 const localState = Object.freeze({
   city: '',
@@ -39,7 +39,7 @@ class WeatherForm extends Component {
 }
 
 const mapDispatchToProps = {
-  onFetchData: fetch,
+  onFetchData: fetchData,
 }
 
 WeatherForm.propTypes = {
