@@ -22,7 +22,9 @@ class WeatherForm extends Component {
     const { city, code } = this.state
     const { onFetchData } = this.props
     e.preventDefault()
-    onFetchData(city, code)
+    if (city && code !== '') {
+      onFetchData(city, code)
+    }
   }
 
   render() {
