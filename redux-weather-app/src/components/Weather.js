@@ -1,16 +1,23 @@
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import { getData } from '../selectors'
 
-const Weather = ({}) => {
-  return (
-    <div>
-      
-    </div>
-  )
+class Weather extends Component {
+  render() {
+    const { data } = this.props
+    return(
+      <div>{console.log(data)}</div>
+    )
+  }
 }
 
 Weather.propTypes = {
-
+  data: PropTypes.object,
 }
 
-export default Weather
+const mapStateToProps = state => ({
+  data: getData(state),
+})
+
+export default connect(mapStateToProps, null)(Weather)
