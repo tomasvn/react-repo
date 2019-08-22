@@ -5,14 +5,14 @@ import { setCity } from '../helpers/setCity'
 import { setCode } from '../helpers/setCode'
 import { fetchData } from '../helpers/fetch'
 
-const localState = Object.freeze({
+const initialState = Object.freeze({
   city: '',
   code: '',
 })
 
 class WeatherForm extends Component {
   
-  state = localState
+  state = initialState
 
   handleChangeCity = e => this.setState(setCity(e.target.value))
 
@@ -21,10 +21,9 @@ class WeatherForm extends Component {
   handleSubmit = e => {
     const { city, code } = this.state
     const { onFetchData } = this.props
+    
     e.preventDefault()
-    if (city && code !== '') {
-      onFetchData(city, code)
-    }
+    if (city && code !== '') onFetchData(city, code)
   }
 
   render() {
