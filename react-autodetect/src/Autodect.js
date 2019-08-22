@@ -32,8 +32,6 @@ class Autodetect extends Component {
     this.setState(setRegion(req.region))
     this.setState(setName(req.country_name))
     this.setState(setCode(req.country))
-    
-    console.log(req)
   }
 
   render() {
