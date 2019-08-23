@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { setCity } from '../helpers/setCity'
-import { setCode } from '../helpers/setCode'
-import { fetchData } from '../helpers/fetch'
+import { setCity, setCode, fetchData } from '../helpers'
 
 const initialState = Object.freeze({
   city: '',
