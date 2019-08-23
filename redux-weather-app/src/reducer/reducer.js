@@ -3,7 +3,7 @@ import * as type from "../actions"
 const initialState = Object.freeze({
   data: {},
   isFetching: false,
-  isError: undefined
+  isError: undefined,
 })
 
 export const reducer = (state = initialState, action) => {
