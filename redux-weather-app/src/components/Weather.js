@@ -4,12 +4,13 @@ import { connect } from 'react-redux'
 import { getData } from '../selectors'
 import { time } from '../helpers'
 import WeatherDetails from './WeatherDetails';
+import Widget from './Widget'
 
 class Weather extends Component {
 
   render() {
     const { data } = this.props
-    const { main, weather, dt } = data
+    const { main, weather, dt, sys } = data
 
     return(
       <>
@@ -23,6 +24,10 @@ class Weather extends Component {
         <div>
           {weather && <h2>Weather Details</h2>}
           {weather && <WeatherDetails data={weather} />}
+        </div>
+        <div>
+          {sys && <h2>Weather Widget</h2>}
+          {sys && <Widget data={sys} />}
         </div>
       </>
     )

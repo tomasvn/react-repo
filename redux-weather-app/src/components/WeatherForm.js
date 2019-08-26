@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { fetchData, setCity, setCode } from '../helpers'
+import { fetchData, setCity } from '../helpers'
 
 const initialState = Object.freeze({
   city: '',
-  code: '',
 })
 
 class WeatherForm extends Component {
@@ -14,23 +13,20 @@ class WeatherForm extends Component {
 
   handleChangeCity = e => this.setState(setCity(e.target.value))
 
-  handleChangeCode = e => this.setState(setCode(e.target.value))
-
   handleSubmit = e => {
-    const { city, code } = this.state
+    const { city } = this.state
     const { onFetchData } = this.props
     
     e.preventDefault()
-    if (city && code !== '') onFetchData(city, code)
+    if (city !== '') onFetchData(city)
   }
 
   render() {
-    const { city, code } = this.state
+    const { city } = this.state
 
     return(
       <form onSubmit={this.handleSubmit}>
         <input type="text" placeholder="City..." onChange={this.handleChangeCity} value={city}/>
-        <input type="text" placeholder="Country..." onChange={this.handleChangeCode} value={code}/>
         <button>Search</button>
       </form>
     )
