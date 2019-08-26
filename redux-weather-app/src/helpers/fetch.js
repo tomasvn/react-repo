@@ -7,7 +7,6 @@ export const fetchData = (city, code) => async dispatch => {
   try {
     const res = await fetch(url(city, code))
     const data = await res.json()
-    console.log(data)
     dispatch(fetchSuccess(data))
   
   } catch(e) {
