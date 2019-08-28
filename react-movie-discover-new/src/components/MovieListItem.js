@@ -2,11 +2,14 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import LazyLoad from 'react-lazyload'
 
+const URL = 'https://image.tmdb.org/t/p/w342'
+const ASSETS = '/assets/flags/'
+
 const MovieListItem = ({poster, title, description, rating, date, lang}) => {
   return(
     <div className="movie-list-item">
       <LazyLoad height={200}>
-        <img className="movie-list-item__poster" src={`https://image.tmdb.org/t/p/w342${poster}`} alt="Poster" />
+        <img className="movie-list-item__poster" src={`${URL}${poster}`} alt="Poster" />
       </LazyLoad>
       <div>
         <h3 className="movie-list-item__title">{title}</h3>
@@ -14,7 +17,7 @@ const MovieListItem = ({poster, title, description, rating, date, lang}) => {
         <div className="movie-details">
           <strong className="movie-label movie-details__rating">{rating}</strong>
           <strong className="movie-label movie-details__release-date">{date}</strong>
-          <img className="movie-label movie-details__lang" src={`/assets/flags/${lang}.svg`} alt={lang}/>
+          <img className="movie-label movie-details__lang" src={`${ASSETS}${lang}.svg`} alt={lang}/>
         </div>
       </div>
     </div>
