@@ -1,5 +1,7 @@
 import React from 'react'
 
+const ASSETS = '/assets/flags/'
+
 const Cell = ({ ip, city, region, countryName, icon }) => {
   
   return(
@@ -9,7 +11,7 @@ const Cell = ({ ip, city, region, countryName, icon }) => {
         <div className="cell cell--bold">{region}</div>
       <div className="flex">
         <div className="cell cell--bold">{countryName}</div>
-        <img src={`/assets/flags/${icon}.svg`} alt={countryName} className="flag"/>
+        <img src={`${ASSETS}${icon}.svg`} alt={countryName} className="flag"/>
       </div>
     </>
   )
