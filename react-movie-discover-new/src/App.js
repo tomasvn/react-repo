@@ -4,10 +4,10 @@ import MovieList from './components/MovieList'
 import LoadMore from './components/LoadMore'
 import Navigation from './components/Navigation'
 import Loader from './components/Loader'
-import Menu from './components/Menu'
-import Logo from './components/Logo'
-import MenuNavigation from './components/MenuNavigation'
-import LangSwitcher from './components/LangSwitcher'
+//import Menu from './components/Menu'
+//import Logo from './components/Logo'
+//import MenuNavigation from './components/MenuNavigation'
+//import LangSwitcher from './components/LangSwitcher'
 
 import {
   url,
@@ -92,11 +92,11 @@ class App extends Component {
       
       return(
         <MovieView>
-          <Menu>
+        {/*<Menu>
             <Logo />
             <MenuNavigation />
             <LangSwitcher langOptions={lang} onToggle={() => console.log('click')} />
-          </Menu>
+          </Menu>*/}
           <MovieList isVisible={isVisible} data={data} error={isError} msg={errMsg} />
           {
             isVisible < data.length
