@@ -1,12 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const IMG_URL = 'http://openweathermap.org/img/wn/'
-const RETINA = '@2x'
+const img = {
+  URL: 'http://openweathermap.org/img/wn/',
+  RETINA: '@2x',
+  EXT: 'png'
+}
 
 const WeatherDetailsItem = ({description, icon}) => {
   return (
-    <li><img srcSet={`${IMG_URL}${icon}${RETINA}.png 2x, ${IMG_URL}${icon}.png`} alt={description} /><span>{description}</span></li>
+    <li><img srcSet={`${img.URL}${icon}${img.RETINA}.${img.EXT} 2x, ${img.URL}${icon}.${img.EXT}`} alt={description} /><span>{description}</span></li>
   )
 }
 
