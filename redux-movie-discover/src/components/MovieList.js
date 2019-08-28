@@ -2,11 +2,13 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import MovieItem from './MovieItem'
 
+const INITIAL_NUM = 0
+
 const MovieList = ({data, isVisible}) => {
   return(
     <div>
       {
-        data.slice(0, isVisible).map((item, index) =>
+        data.slice(INITIAL_NUM, isVisible).map((item, index) =>
           <MovieItem
             key={index}
             title={item.title}
