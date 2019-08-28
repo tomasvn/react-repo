@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 import MovieListItem from './MovieListItem'
 import Error from './Error'
 
+const INITIAL_NUM = 0
+
 const MovieList = ({isVisible, data, error, msg}) => {
   if (error) {
     return <Error msg={msg} />
@@ -11,7 +13,7 @@ const MovieList = ({isVisible, data, error, msg}) => {
     return(
       <div className="movie-list">
         {
-          data.slice(0, isVisible).map((item, index) => (
+          data.slice(INITIAL_NUM, isVisible).map((item, index) => (
             <MovieListItem
               key={index}
               poster={item.poster_path}
