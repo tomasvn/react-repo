@@ -1,23 +1,45 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, memo } from 'react'
+
+//useEffect hook - similiar to componentDidMount() and componentDidUpdate()
+//useEffect hook takes in a callback function as argument
 
 const App = () => {
-  // Declare a new state variable, which we'll call "count"
-  // const data = useSelector(getData)
-  // count is the initialState
-  // setCount is a function that updates the state
-  const [count, setCount] = useState(0);
+  const [data, setData] = useState([])
+  const [isError, setError] = useState(null)
+  
+  const handleFetch = async() => {
+    try {
+      const req = await fetch('https://jsonplaceholder.typicode.com/posts/')
+      const res = await req.json()
+      setData(res)
+    
+    } catch(e) {
+      setError(e.message)
+    }
+  } 
 
-  // we can extract the setCount function, and create HOF for better readability, so we dont have to pass in () => setCount(...)
-  const handleCount = () => setCount(count + 1)
+  useEffect(() => {
+    handleFetch()
+  }, [])
 
-  return (
-    <div>
-      <p>You clicked {count} times</p>
-      <button onClick={handleCount}>
-        Click me
-      </button>
-    </div>
-  );
+  if (isError) {
+    return <div>{isError}</div>
+  
+  } else {
+    
+    return(
+      <ul>
+        {
+          data.map(item => (
+            <li key={item.id}>
+              <h3>{item.title}</h3>
+              {item.body}
+            </li>
+          ))
+        }
+      </ul>
+    )
+  }
 }
 
-export default App;
+export default memo(App)
