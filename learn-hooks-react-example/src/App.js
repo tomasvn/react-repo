@@ -33,7 +33,7 @@ const App = () => {
           data.map(item => (
             <li key={item.id}>
               <h3>{item.title}</h3>
-              {item.body}
+              <p>{item.body}</p>
             </li>
           ))
         }
