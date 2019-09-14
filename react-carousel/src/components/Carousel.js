@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { glob } from '../styles/globals'
@@ -7,9 +7,38 @@ import NextBtn from './Next'
 import CarouselItem from './Item'
 import CarouselDots from './Dots'
 
-const Carousel = ({slides, className}) => {
-  
+const Carousel = ({slides, className, keyboard}) => {
+
   let [sliderIndex, setIndex] = useState(0)
+
+  const handleKeyboard = e => {
+
+    const key = e.keyCode
+
+    const keyMap = {
+      ARROW_LEFT: 37,
+      ARROW_RIGHT: 39
+    }
+
+    if (key === keyMap.ARROW_LEFT) {
+      
+      /**
+       * When calling in the useEffect it wont properly handle the index, it will mess up the carousel
+       */
+      handlePrevSlide(e)
+
+    } else if (key === keyMap.ARROW_RIGHT) {
+      handleNextSlide(e)
+    }
+  }
+  
+  /**
+  * If we dont use the useEffect Hook and presss arrow key it will fire twice,
+  * call it in useEffect hook to fire it only once
+  * */
+  useEffect(() => {
+    if (keyboard) document.addEventListener('keydown', e => handleKeyboard(e))
+  }, [])
 
   const handleSlides = index => setIndex(index)
 
@@ -22,7 +51,7 @@ const Carousel = ({slides, className}) => {
 
     setIndex(sliderIndex)
 
-    // console.log('Prev Index', sliderIndex)
+    console.log('Prev Index', sliderIndex)
   }
 
   const handleNextSlide = e => {
@@ -34,7 +63,7 @@ const Carousel = ({slides, className}) => {
 
     setIndex(sliderIndex)
 
-    // console.log('Next Index', sliderIndex)
+    console.log('Next Index', sliderIndex)
   }
 
   return(

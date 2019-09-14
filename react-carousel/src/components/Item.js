@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { glob } from '../styles/globals'
 
-const Item = ({quote, author, className, index, isActiveIndex, auto}) => {
+const Item = ({quote, author, className, index, isActiveIndex}) => {
 
   return(
     <div className={(index === isActiveIndex) ? `${className} is-active` : className}>

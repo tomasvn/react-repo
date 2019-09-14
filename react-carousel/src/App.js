@@ -23,7 +23,7 @@ const App = () => {
     handleFetch()
   }, [])
 
-  return error ? <div>{error}</div> : (data && <Carousel slides={data} />)
+  return error ? <div>{error}</div> : (data && <Carousel keyboard={false} slides={data} />)
 }
 
 export default App;
