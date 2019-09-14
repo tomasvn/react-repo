@@ -1,8 +1,8 @@
 ## FAQ
-Q: Access to fetch at ... from origin `http://localhost:3000` has been block by CORS policy
-A: For Windows: Press `Win + R` > `chrome.exe --user-data-dir="C://Chrome dev session" --disable-web-security` > open `http://localhost:3000`
+- Q: Access to fetch at ... from origin `http://localhost:3000` has been block by CORS policy
+- A: For Windows: Press `Win + R` > `chrome.exe --user-data-dir="C://Chrome dev session" --disable-web-security` > open `http://localhost:3000`
 
-A: For Mac: In terminal > `open /Applications/Google\ Chrome.app --args --user-data-dir="/var/tmp/Chrome dev session" --disable-web-security
+- A: For Mac: In terminal > `open /Applications/Google\ Chrome.app --args --user-data-dir="/var/tmp/Chrome dev session" --disable-web-security
 `
 
 ## Available Scripts
