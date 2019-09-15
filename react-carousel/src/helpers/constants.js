@@ -12,3 +12,8 @@ export const ITEM = 'ITEM'
 export const IS_ACTIVE = 'IS_ACTIVE'
 export const IS_DEFAULT = 'IS_DEFAULT'
 export const SPACING = 'SPACING'
+
+export const KEY_MAP = {
+  ARROW_LEFT: 37,
+  ARROW_RIGHT: 39
+}

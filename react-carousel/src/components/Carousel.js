@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { glob } from '../styles/globals'
+import { KEY_MAP } from '../helpers'
 import PrevBtn from './Prev'
 import NextBtn from './Next'
 import CarouselItem from './Item'
@@ -23,19 +24,14 @@ const Carousel = ({slides, className, keyboard}) => {
 
     const key = e.keyCode
 
-    const keyMap = {
-      ARROW_LEFT: 37,
-      ARROW_RIGHT: 39
-    }
-
-    if (key === keyMap.ARROW_LEFT) {
-      
+    if (key === KEY_MAP.ARROW_LEFT) {
+  
       /**
        * When calling in the useEffect it wont properly handle the index, it will mess up the carousel
        */
       handlePrevSlide(e)
 
-    } else if (key === keyMap.ARROW_RIGHT) {
+    } else if (key === KEY_MAP.ARROW_RIGHT) {
       handleNextSlide(e)
     }
   }
