@@ -11,6 +11,14 @@ const Carousel = ({slides, className, keyboard}) => {
 
   let [sliderIndex, setIndex] = useState(0)
 
+  /**
+  * If we dont use the useEffect Hook and presss arrow key it will fire twice,
+  * call it in useEffect hook to fire it only once
+  * */
+  useEffect(() => {
+    if (keyboard) document.addEventListener('keydown', e => handleKeyboard(e))
+  }, [])
+  
   const handleKeyboard = e => {
 
     const key = e.keyCode
@@ -31,14 +39,7 @@ const Carousel = ({slides, className, keyboard}) => {
       handleNextSlide(e)
     }
   }
-  
-  /**
-  * If we dont use the useEffect Hook and presss arrow key it will fire twice,
-  * call it in useEffect hook to fire it only once
-  * */
-  useEffect(() => {
-    if (keyboard) document.addEventListener('keydown', e => handleKeyboard(e))
-  }, [])
+
 
   const handleSlides = index => setIndex(index)
 
