@@ -1,0 +1,17 @@
+.progress-bar {
+  display: flex;
+  background-color: $light-grey;
+  border-radius: $radius;
+  min-width: 400px;
+  height: $xs-sizing;
+
+  &__inner {
+    background-color: $red;
+    border-radius: $radius;
+    transition: width .5s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: $white;
+    text-align: center;
+  }
+}
