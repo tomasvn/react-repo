@@ -8,7 +8,7 @@ import {
 } from './helpers'
 
 function App() {
-  const [initialVal, setValue] = useState(INITIAL_VAL)
+  const [value, setValue] = useState(INITIAL_VAL)
 
   const handleClick = () => {
     setValue(randomize)
@@ -16,7 +16,7 @@ function App() {
 
   return (
     <>
-      <ProgressBar text={`${initialVal}%`} value={initialVal} max={MAX_VAL} />
+      <ProgressBar text={`${value}%`} value={value} max={MAX_VAL} />
       <UpdateButton onClick={handleClick} />
     </>
   )
