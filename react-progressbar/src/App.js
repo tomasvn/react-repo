@@ -10,9 +10,7 @@ import {
 function App() {
   const [value, setValue] = useState(INITIAL_VAL)
 
-  const handleClick = () => {
-    setValue(randomize)
-  }
+  const handleClick = () => setValue(randomize)
 
   return (
     <>
