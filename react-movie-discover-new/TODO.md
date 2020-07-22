@@ -9,11 +9,11 @@
 
 ## Todos
 
-- [ ] Add some sort of sorting
+- [x] Add some sort of sorting
 - [ ] Find UI library
 - [ ] Find new loader
 - [ ] Add basic accessibility
-- [ ] Update old react to newest version
+- [x] Update old react to newest version
 - [ ] Update tooling
 
 ## Future Update

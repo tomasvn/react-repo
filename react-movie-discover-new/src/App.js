@@ -78,10 +78,22 @@ class App extends Component {
     promise(this.setState(prevPage, this.handleRefetchData)).then(el => this.handleScrollTop())
   }
 
+  handleSort = (e) => {
+    const { data } = this.state
+
+    if (e.target.value === "asc") {
+      const ascSort = data.sort((a, b) => a.vote_average - b.vote_average);
+      this.setState({ data: ascSort })
+
+    } else if(e.target.value === "desc") {
+      const descSort = data.sort((a, b) => b.vote_average - a.vote_average);
+
+      this.setState({ data: descSort })
+    }
+  }
+
   render() {
     const { isVisible, isLoading, isError, errMsg, data, page, totalPages, lang } = this.state
-    // console.log(data.sort((a,b) => a.vote_average - b.vote_average)) sort on nejnizsiho desc
-    // console.log(data.sort((a,b) => a.vote_average - b.vote_average)) sort od nejvyssiho asc
 
     if (isLoading) {
       return <Loader />
@@ -90,6 +102,11 @@ class App extends Component {
       
       return(
         <MovieView>
+          <select onChange={(e) => this.handleSort(e)}>
+            <option>Sort by vote...</option>
+            <option value="asc">ASC</option>
+            <option value="desc">DESC</option>
+          </select>
           <MovieList isVisible={isVisible} data={data} error={isError} msg={errMsg} />
           {
             isVisible < data.length
