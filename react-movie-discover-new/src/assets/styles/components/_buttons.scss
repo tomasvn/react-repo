@@ -13,7 +13,8 @@
 }
 
 .btn-primary {
-  border: 0.1rem solid $radius;
+  border: 0.1rem solid;
+  border-radius: $radius;
 }
 
 .btn-toggle {
