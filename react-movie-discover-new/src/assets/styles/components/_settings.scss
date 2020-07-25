@@ -1,3 +1,9 @@
+.settings-nav {
+  .btn:not(:last-child) {
+    margin-right: 1rem;
+  }
+}
+
 .settings-panel {
   .select:not(:last-child) {
     margin-right: 1rem;

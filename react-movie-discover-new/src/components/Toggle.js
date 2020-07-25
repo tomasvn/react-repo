@@ -1,15 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { RiSettings4Line } from 'react-icons/ri'
 
-const Toggle = ({onClick}) => {
+const Toggle = ({onClick, children}) => {
   return (
-    <button class="btn btn-toggle" onClick={onClick}><RiSettings4Line /></button>
+    <button className="btn btn-toggle" onClick={onClick}>{children}</button>
   )
 }
 
 Toggle.propTypes = {
   onClick: PropTypes.func.isRequired,
+  children: PropTypes.node
 }
 
 export default Toggle

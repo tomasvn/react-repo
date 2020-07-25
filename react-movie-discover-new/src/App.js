@@ -1,4 +1,6 @@
 import React, { Component, Fragment } from 'react';
+import { RiSettings4Line, RiCompass2Line } from 'react-icons/ri'
+
 import MovieView from './components/MovieView'
 import MovieList from './components/MovieList'
 import LoadMore from './components/LoadMore'
@@ -130,7 +132,16 @@ class App extends Component {
 
           <MovieView>
             <SettingsView>
-              <Toggle onClick={this.handleOpenSettings} />
+              <div class="u-flex">
+                <Toggle onClick={this.handleOpenSettings}>
+                  <RiSettings4Line />
+                </Toggle>
+                <Toggle onClick={this.handleRefetchData}>
+                  Reload Data
+                  <RiCompass2Line />
+                </Toggle>
+              </div>
+              
               {
               isSettingsOpen ?
                 <SettingsPanel
