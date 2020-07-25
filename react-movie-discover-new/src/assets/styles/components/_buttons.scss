@@ -5,12 +5,33 @@
 .btn {
   border: 0;
   background-color: transparent;
-  padding: 5px 10px;
-  border: 1px solid;
+  padding: 0.5rem 1rem;
+  font-size: typeSetting(-1);
+  white-space: nowrap;
+  min-width: $xl-sizing;
+  font-family: $font-stack-default;
+}
+
+.btn-primary {
+  border: 0.1rem solid $radius;
+}
+
+.btn-toggle {
+  min-width: initial;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0.1rem solid;
+  border-radius: $radius;
+}
+
+.btn--icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .btn--center {
-  display: flex;
   margin-left: auto;
   margin-right: auto;
 }

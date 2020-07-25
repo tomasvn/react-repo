@@ -13,6 +13,7 @@ export const nextPage = state => ({ page: state.page += 1 })
 export const prevPage = state => ({ page: state.page -= 1 })
 export const setDefaultVisible = isVisible => ({ isVisible })
 export const setButtonDisabled = isDisabled => ({ isDisabled })
+export const setOpenState = isSettingsOpen => ({ isSettingsOpen })
 export const smoothScroll = (target, duration) => {
   const targetPosition = document.querySelector(target).getBoundingClientRect().top; //Gets a relative position of an element to the window
   const startPosition = window.pageYOffset

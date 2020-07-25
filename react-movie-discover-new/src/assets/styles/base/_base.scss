@@ -3,6 +3,7 @@
 html {
     box-sizing: border-box;
     font-size: $html-size;
+    min-height: 100%;
 }
 
 *,
@@ -12,9 +13,14 @@ html {
 }
 
 body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin: 0;
     line-height: 1.5;
     font-family: $font-stack-2;
+    min-height: 100%;
+    font-size: 1.6rem;
 }
 
 img {
@@ -29,4 +35,13 @@ h4,
 h5,
 h6 {
     font-family: $font-stack-1;
+}
+
+select {
+  min-height: 3rem;
+  font-size: 1.2rem;
+}
+
+#root {
+  min-height: 100%;
 }

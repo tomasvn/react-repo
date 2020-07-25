@@ -1,0 +1,10 @@
+.main-heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: typeSetting(1);
+}
+
+.main-heading__icon {
+  margin-left: 1rem;
+}

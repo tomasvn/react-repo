@@ -1,9 +1,13 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import MovieView from './components/MovieView'
 import MovieList from './components/MovieList'
 import LoadMore from './components/LoadMore'
 import Navigation from './components/Navigation'
 import Loader from './components/Loader'
+import Heading from './components/Heading'
+import SettingsView from './components/SettingsView'
+import SettingsPanel from './components/SettingsPanel'
+import Toggle from './components/Toggle'
 
 import {
   url,
@@ -17,7 +21,8 @@ import {
   prevPage,
   isLoading,
   isError,
-  errorMsg 
+  errorMsg, 
+  setOpenState
 } from './helpers'
 import { initialState } from './state/initialState'
 
@@ -46,13 +51,18 @@ class App extends Component {
       this.setState(isLoading(false))
       this.setState(setData(results))
       this.setState(setTotalPages(total_pages))
-      // console.log(req)
+      console.log('Data', req)
     
     } catch(e) {
       this.setState(isLoading(false))
       this.setState(isError(true))
       this.setState(errorMsg(e.message))
     }
+  }
+
+  handleOpenSettings = () => {
+    const { isSettingsOpen } = this.state
+    this.setState(setOpenState(!isSettingsOpen));
   }
 
   handleRefetchData = () => {
@@ -78,7 +88,7 @@ class App extends Component {
     promise(this.setState(prevPage, this.handleRefetchData)).then(el => this.handleScrollTop())
   }
 
-  handleSort = (e) => {
+  handleSortVote = (e) => {
     const { data } = this.state
 
     if (e.target.value === "asc") {
@@ -92,28 +102,55 @@ class App extends Component {
     }
   }
 
+  handleSortPopularity = (e) => {
+    const { data } = this.state
+
+    if (e.target.value === "asc") {
+      const ascSort = data.sort((a, b) => a.popularity - b.popularity);
+      this.setState({ data: ascSort })
+
+    } else if(e.target.value === "desc") {
+      const descSort = data.sort((a, b) => b.popularity - a.popularity);
+
+      this.setState({ data: descSort })
+    }
+  }
+
   render() {
-    const { isVisible, isLoading, isError, errMsg, data, page, totalPages, lang } = this.state
+    const { isVisible, isLoading, isError, errMsg, data, page, totalPages, isSettingsOpen } = this.state
 
     if (isLoading) {
       return <Loader />
     
     } else {
       
-      return(
-        <MovieView>
-          <select onChange={(e) => this.handleSort(e)}>
-            <option>Sort by vote...</option>
-            <option value="asc">ASC</option>
-            <option value="desc">DESC</option>
-          </select>
-          <MovieList isVisible={isVisible} data={data} error={isError} msg={errMsg} />
-          {
-            isVisible < data.length
-            ? <LoadMore onClick={this.handleLoadMore} name={`Load More`} />
-            : <Navigation pagination={page} allPages={totalPages} onPrevClick={this.handlePrevPage} prev={'Prev'} onNextClick={this.handleNextPage} next={'Next'} /> 
-          }
-        </MovieView>
+      return (
+        <Fragment>
+          <Heading text="Movie Discover App" />
+
+          <MovieView>
+            <SettingsView>
+              <Toggle onClick={this.handleOpenSettings} />
+              {
+              isSettingsOpen ?
+                <SettingsPanel
+                  onChangeVote={(e) => this.handleSortVote(e)}
+                  onChangePopularity={(e) => this.handleSortPopularity(e)}
+                  selectVoteText="Sort by vote..."
+                  selectPopularityText="Sort by popularity..."
+                />
+                : null
+              }
+            </SettingsView>
+
+            <MovieList isVisible={isVisible} data={data} error={isError} msg={errMsg} />
+            {
+              isVisible < data.length
+              ? <LoadMore onClick={this.handleLoadMore} name={`Load More`} />
+              : <Navigation pagination={page} allPages={totalPages} onPrevClick={this.handlePrevPage} prev={'Prev'} onNextClick={this.handleNextPage} next={'Next'} /> 
+            }
+          </MovieView>
+        </Fragment>
       )
     }
   }

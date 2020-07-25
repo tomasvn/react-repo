@@ -8,4 +8,5 @@ export const initialState = Object.freeze({
   isDisabled: true,
   errMsg: undefined,
   lang: ['en', 'cs', 'pl', 'de', 'sk'],
+  isSettingsOpen: false
 })

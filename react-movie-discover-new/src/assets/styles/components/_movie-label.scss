@@ -1,10 +1,12 @@
 .movie-label {
-    font-family: $font-stack-2;
-    padding: ($sizing / 5) 8px;
-    border-radius: $radius;
-    border: 1px solid;
+  display: flex;
+  align-items: center;
+  font-family: $font-stack-2;
+  padding: ($sizing / 5) 0.8rem;
+  border-radius: $radius;
+  border: 0.1rem solid;
 
-    &:not(:last-child) {
-        margin-right: ($sizing / 2);
-    }
+  &:not(:last-child) {
+    margin-right: ($sizing / 2);
+  }
 }

@@ -16,6 +16,14 @@
 - [x] Update old react to newest version
 - [ ] Update tooling
 
+### 24-07-2020
+
+- [x] Add icons
+  - [icons](https://react-icons.github.io/icons?name=ri)
+- [x] Work on styling
+- [x] Add sort by popularity
+- [x] Change font stack 
+
 ## Future Update
 
 - Move away from React classes

@@ -5,10 +5,16 @@
 .movie-details {
   display: flex;
   align-items: center;
-  font-size: 1.2rem;
+  font-size: typeSetting(-2);
 }
 
 .movie-details__lang {
-  width: 30px;
+  width: 3rem;
+  min-height: 2.4rem;
   padding: 0;
+}
+
+.movie-details__rating {
+  fill: $rating-color;
+  margin-left: 0.5rem;
 }

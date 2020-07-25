@@ -1,0 +1,29 @@
+$margin-size: ();
+
+@for $i from 1 through 30 {
+  $margin-size: append($margin-size, $i * 5);
+}
+
+@for $i from 1 through length($margin-size) {
+  .u-mb-#{nth($margin-size, $i)} {
+    margin-bottom: nth($margin-size, $i) / 10 + rem;
+  }
+}
+
+@for $i from 1 through length($margin-size) {
+  .u-mt-#{nth($margin-size, $i)} {
+    margin-top: nth($margin-size, $i) / 10 + rem;
+  }
+}
+
+@for $i from 1 through length($margin-size) {
+  .u-ml-#{nth($margin-size, $i)} {
+    margin-left: nth($margin-size, $i) / 10 + rem;
+  }
+}
+
+@for $i from 1 through length($margin-size) {
+  .u-mr-#{nth($margin-size, $i)} {
+    margin-right: nth($margin-size, $i) / 10 + rem;
+  }
+}

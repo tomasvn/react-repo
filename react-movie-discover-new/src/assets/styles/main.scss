@@ -1,3 +1,5 @@
-@import './settings/settings';
+@import './settings/all';
+@import './utilities/all';
 @import './base/base';
-@import './components/components';
+@import './layout/containers';
+@import './components/all';

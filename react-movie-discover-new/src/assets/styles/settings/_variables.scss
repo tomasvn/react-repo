@@ -16,7 +16,7 @@ $screen-md-max: ($screen-lg - 1);
 //===============
 //== #SPACINGS ==
 //===============
-$sizing: 10px;
+$sizing: 1rem;
 
 $xs-sizing: $sizing * 2; //20
 $sm-sizing: $sizing * 4; //40
@@ -27,14 +27,36 @@ $xl-sizing: $sizing * 10; //100
 //=============
 //== #RADIUS ==
 //=============
-$radius: 3px;
+$radius: 0.3rem;
 
 //=================
-// ==#FONT STACK ==
+//== #FONT STACK ==
 //=================
 
-$font-stack-1: 'Playfair Display', serif;
-$font-stack-2: 'Fauna One', serif;
+$font-stack-default: system-ui, "Segoe UI", sans-serif;
+$font-stack-1: 'Bebas Neue', cursive;
+$font-stack-2: 'Lora', serif;
+
+//=================
+//== #FONT SIZES ==
+//=================
+
+$typesetting: (
+  -2: 1.2rem,
+  -1: 1.5rem,
+  0: 1.8rem,
+  1: 2.4rem,
+  2: 3rem,
+  3: 3.6rem,
+  4: 4.2rem,
+  5: 4.8rem
+);
+
+//============
+//== #COLOR ==
+//============
+
+$rating-color: #f8f034;
 
 //============
 //== #OTHER ==

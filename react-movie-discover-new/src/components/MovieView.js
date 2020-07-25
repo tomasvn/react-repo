@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 const MovieView = ({children}) => {
   return(
-    <div className="movie-view">{children}</div>
+    <div className="movie-view container">{children}</div>
   )
 }
 
