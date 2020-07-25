@@ -1,15 +1,15 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const MenuNavigation = () => {
-  return(
+  return (
     <nav>
       <ul>
         <li>ABOUT</li>
         <li>CHANGE LANGUAGE</li>
       </ul>
     </nav>
-  )
-}
+  );
+};
 
-export default MenuNavigation
+export default MenuNavigation;

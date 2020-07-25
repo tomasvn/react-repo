@@ -1,10 +1,8 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const Logo = () => {
-  return(
-    <div>Logo</div>
-  )
-}
+  return <div>Logo</div>;
+};
 
-export default Logo
+export default Logo;

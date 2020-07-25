@@ -12,6 +12,7 @@
 - [The Movie DB API](https://developers.themoviedb.org/3/getting-started/introduction)
 
 ## Links Section
+
 - [Movie App Tutorial](https://medium.com/@levifuller/how-to-build-a-scalable-movie-browser-app-using-react-and-redux-in-visual-studio-code-dea8bfb3eabe)
 
 ## Todos

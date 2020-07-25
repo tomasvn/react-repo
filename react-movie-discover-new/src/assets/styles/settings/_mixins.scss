@@ -4,25 +4,30 @@
 
 @mixin respond-to($media) {
   @if $media == xs {
-		@media (max-width: $screen-xs-max) { @content }
+    @media (max-width: $screen-xs-max) {
+      @content;
+    }
+  } @else if $media == sm {
+    @media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+      @content;
+    }
+  } @else if $media == md {
+    @media (min-width: $screen-md) and (max-width: $screen-md-max) {
+      @content;
+    }
+  } @else if $media == lg {
+    @media (min-width: $screen-lg) {
+      @content;
+    }
   }
-  @else if $media == sm {
-		@media (min-width: $screen-sm) and (max-width: $screen-sm-max) { @content }
-	}
-	@else if $media == md {
-		@media (min-width: $screen-md) and (max-width: $screen-md-max) { @content }
-	}
-	@else if $media == lg {
-		@media (min-width: $screen-lg) { @content }
-	}
 }
 
 //Convert illustrator, indesign and photoshop tracking into letter spacing.
 
-@function tracking( $target ){
+@function tracking($target) {
   @return ($target / 1000) * 1em;
 }
 
-@mixin tracking( $target ){
-  letter-spacing: tracking( $target );
+@mixin tracking($target) {
+  letter-spacing: tracking($target);
 }

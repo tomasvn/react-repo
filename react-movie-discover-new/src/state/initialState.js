@@ -13,5 +13,5 @@ export const initialState = Object.freeze({
   searchData: [],
   searchPage: 1,
   searchTotalPages: undefined,
-  hasSearch: false
-})
+  hasSearch: false,
+});

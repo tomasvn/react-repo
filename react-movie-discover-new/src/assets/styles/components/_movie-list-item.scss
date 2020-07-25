@@ -17,6 +17,6 @@
   width: 13rem;
 
   @include respond-to(xs) {
-      display: none;
+    display: none;
   }
 }
