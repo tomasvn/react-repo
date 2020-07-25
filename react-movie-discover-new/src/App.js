@@ -94,7 +94,6 @@ class App extends Component {
 
     if (param === 'searchData') {
       this.getSearchData(searchQuery);
-
     } else if (param === 'noSearch') {
       this.getData(page);
     }
@@ -113,7 +112,6 @@ class App extends Component {
       promise(this.setState(nextPage, () => this.handleRefetchData('noSearch'))).then((el) =>
         this.handleScrollTop(),
       );
-
     } else if (param === 'nextSearch') {
       promise(
         this.setState(nextSearchPage, () => this.handleRefetchData('searchData')),
@@ -160,11 +158,9 @@ class App extends Component {
     if (e.target.value === 'asc') {
       const ascSort = data.sort((a, b) => a.vote_average - b.vote_average);
       this.setState({ data: ascSort });
-
     } else if (e.target.value === 'desc') {
       const descSort = data.sort((a, b) => b.vote_average - a.vote_average);
       this.setState({ data: descSort });
-
     } else {
       this.handleRefetchData('noSearch');
     }
@@ -176,11 +172,9 @@ class App extends Component {
     if (e.target.value === 'asc') {
       const ascSort = data.sort((a, b) => a.popularity - b.popularity);
       this.setState({ data: ascSort });
-    
     } else if (e.target.value === 'desc') {
       const descSort = data.sort((a, b) => b.popularity - a.popularity);
       this.setState({ data: descSort });
-    
     } else {
       this.handleRefetchData('noSearch');
     }
