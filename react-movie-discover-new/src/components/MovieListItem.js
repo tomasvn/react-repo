@@ -8,11 +8,11 @@ const ASSETS = '/assets/flags/';
 
 const MovieListItem = ({ poster, title, description, rating, date, lang }) => {
   return (
-    <div className="u-flex">
+    <div className="u-flex u-mb-20">
       <LazyLoad height={200}>
         <img className="movie-list-item__poster" src={`${URL}${poster}`} alt="Poster" />
       </LazyLoad>
-      <div>
+      <div class="movie-list__detail">
         <h3 className="movie-list-item__title">{title}</h3>
         <p className="movie-list-item__description">{description}</p>
         <div className="movie-details">

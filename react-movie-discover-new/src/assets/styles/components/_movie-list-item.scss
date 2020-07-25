@@ -6,6 +6,7 @@
 .movie-list-item__title {
   font-size: typeSetting(0);
   letter-spacing: 0.2rem;
+  margin-top: 0;
 }
 
 .movie-list-item__description {
@@ -15,6 +16,7 @@
 
 .movie-list-item__poster {
   width: 13rem;
+  margin-right: 2rem;
 
   @include respond-to(xs) {
     display: none;
