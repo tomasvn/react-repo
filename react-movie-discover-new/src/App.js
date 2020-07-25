@@ -132,7 +132,7 @@ class App extends Component {
 
           <MovieView>
             <SettingsView>
-              <div class="u-flex">
+              <div className="u-flex">
                 <Toggle onClick={this.handleOpenSettings}>
                   <RiSettings4Line />
                 </Toggle>
