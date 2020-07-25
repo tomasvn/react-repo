@@ -8,5 +8,10 @@ export const initialState = Object.freeze({
   isDisabled: true,
   errMsg: undefined,
   lang: ['en', 'cs', 'pl', 'de', 'sk'],
-  isSettingsOpen: false
+  isSettingsOpen: false,
+  searchQuery: '',
+  searchData: [],
+  searchPage: 1,
+  searchTotalPages: undefined,
+  hasSearch: false
 })

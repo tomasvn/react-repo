@@ -18,7 +18,7 @@
 
 - [x] Add some sort of sorting
 - [ ] Find UI library
-- [ ] Find new loader
+- [x] Find new loader
 - [ ] Add basic accessibility
 - [x] Update old react to newest version
 - [ ] Update tooling
@@ -30,6 +30,10 @@
 - [x] Work on styling
 - [x] Add sort by popularity
 - [x] Change font stack
+
+### 25-07-2020
+
+- [x] Add search
 
 ## Future Update
 

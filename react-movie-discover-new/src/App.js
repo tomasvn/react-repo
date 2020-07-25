@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import { RiSettings4Line, RiCompass2Line } from 'react-icons/ri'
+import { RiSettings4Line } from 'react-icons/ri'
 
 import MovieView from './components/MovieView'
 import MovieList from './components/MovieList'
@@ -8,8 +8,10 @@ import Navigation from './components/Navigation'
 import Loader from './components/Loader'
 import Heading from './components/Heading'
 import SettingsView from './components/SettingsView'
-import SettingsPanel from './components/SettingsPanel'
+import Select from './components/Select'
 import Toggle from './components/Toggle'
+import Search from './components/Search'
+import Button from './components/Button'
 
 import {
   url,
@@ -23,8 +25,14 @@ import {
   prevPage,
   isLoading,
   isError,
-  errorMsg, 
-  setOpenState
+  errorMsg,
+  setOpenState,
+  searchUrl,
+  setSearchData,
+  setHasSearch,
+  nextSearchPage,
+  prevSearchPage,
+  setSearchTotalPages
 } from './helpers'
 import { initialState } from './state/initialState'
 
@@ -53,10 +61,29 @@ class App extends Component {
       this.setState(isLoading(false))
       this.setState(setData(results))
       this.setState(setTotalPages(total_pages))
-      console.log('Data', req)
     
     } catch(e) {
       this.setState(isLoading(false))
+      this.setState(isError(true))
+      this.setState(errorMsg(e.message))
+    }
+  }
+
+  getSearchData = async(query) => {
+    try {
+      const { searchPage } = this.state
+      const res = await fetch(searchUrl(query, searchPage))
+      const req = await res.json()
+      const { results, total_pages } = req
+
+      console.log(req)
+
+      this.setState(isLoading(false))
+      this.setState(setHasSearch(true))
+      this.setState(setSearchData(results))
+      this.setState(setSearchTotalPages(total_pages))
+    
+    } catch(e) {
       this.setState(isError(true))
       this.setState(errorMsg(e.message))
     }
@@ -67,27 +94,59 @@ class App extends Component {
     this.setState(setOpenState(!isSettingsOpen));
   }
 
-  handleRefetchData = () => {
-    const { page } = this.state
-    this.getData(page)
+  handleRefetchData = (param) => {
+    const { page, searchQuery } = this.state
+
+    if (param === 'searchData') {
+      this.getSearchData(searchQuery)
+    } else if(param === 'noSearch') {
+      this.getData(page)
+    }
+
   }
 
   handleScrollTop = () => {
     smoothScroll('#root', 1500)
   }
 
-  handleNextPage = () => {
+  handleNextPage = (param) => {
     const { isVisible } = this.state
     const values = Object.values(this.state)
     if (values.filter(val => val === isVisible)) this.setState(setDefaultVisible(5))
-    promise(this.setState(nextPage, this.handleRefetchData)).then(el => this.handleScrollTop())
+
+    if (param === 'next') {
+      promise(this.setState(nextPage, () => this.handleRefetchData('noSearch'))).then(el => this.handleScrollTop())
+    } else if (param === 'nextSearch') {
+      promise(this.setState(nextSearchPage, () => this.handleRefetchData('searchData'))).then(el => this.handleScrollTop())
+    }
   }
 
-  handlePrevPage = () => {
+  handlePrevPage = (param) => {
     const { isVisible } = this.state
     const values = Object.values(this.state)
     if (values.filter(val => val === isVisible)) this.setState(setDefaultVisible(5))
-    promise(this.setState(prevPage, this.handleRefetchData)).then(el => this.handleScrollTop())
+
+    if (param === 'prev') {
+      promise(this.setState(prevPage, () => this.handleRefetchData('noSearch'))).then(el => this.handleScrollTop())
+    } else if (param === 'prevSearch') {
+      promise(this.setState(prevSearchPage, () => this.handleRefetchData('searchData'))).then(el => this.handleScrollTop())
+    }
+  }
+
+  handleSetSearch = (e) => {
+    this.setState({ searchQuery: e.target.value })
+
+    if (e.target.value === '') {
+      this.setState(setHasSearch(false))
+      this.handleRefetchData('noSearch')
+    }
+  }
+
+  handleSearch = () => {
+    const { searchQuery } = this.state
+    if (searchQuery !== '') {
+      this.getSearchData(searchQuery)
+    }
   }
 
   handleSortVote = (e) => {
@@ -119,7 +178,21 @@ class App extends Component {
   }
 
   render() {
-    const { isVisible, isLoading, isError, errMsg, data, page, totalPages, isSettingsOpen } = this.state
+    const {
+      isVisible,
+      isLoading,
+      isError,
+      errMsg,
+      data,
+      page,
+      totalPages,
+      isSettingsOpen,
+      hasSearch,
+      searchData,
+      searchTotalPages,
+      searchPage,
+      searchQuery
+    } = this.state
 
     if (isLoading) {
       return <Loader />
@@ -136,29 +209,32 @@ class App extends Component {
                 <Toggle onClick={this.handleOpenSettings}>
                   <RiSettings4Line />
                 </Toggle>
-                <Toggle onClick={this.handleRefetchData}>
-                  Reload Data
-                  <RiCompass2Line />
-                </Toggle>
               </div>
               
               {
               isSettingsOpen ?
-                <SettingsPanel
-                  onChangeVote={(e) => this.handleSortVote(e)}
-                  onChangePopularity={(e) => this.handleSortPopularity(e)}
-                  selectVoteText="Sort by vote..."
-                  selectPopularityText="Sort by popularity..."
-                />
+                <div className="settings-panel u-mt-10">
+                  <Select customClass="u-mb-10 u-full-width" onChange={(e) => this.handleSortVote(e)} text="Sort by vote..." />
+                  <Select customClass="u-mb-10 u-full-width" onChange={(e) => this.handleSortPopularity(e)} text="Sort by popularity..." />
+                  <Search customClass="u-mb-10 u-full-width" onChange={(e) => this.handleSetSearch(e)} searchQuery={searchQuery} />
+                  <Button customClass="u-mb-10 u-full-width" onClick={this.handleSearch}  text="Search" />
+                </div>
                 : null
               }
             </SettingsView>
 
-            <MovieList isVisible={isVisible} data={data} error={isError} msg={errMsg} />
+            <MovieList isVisible={isVisible} data={hasSearch ? searchData : data} error={isError} msg={errMsg} />
             {
               isVisible < data.length
               ? <LoadMore onClick={this.handleLoadMore} name={`Load More`} />
-              : <Navigation pagination={page} allPages={totalPages} onPrevClick={this.handlePrevPage} prev={'Prev'} onNextClick={this.handleNextPage} next={'Next'} /> 
+              : <Navigation
+                  pagination={hasSearch ? searchPage : page}
+                  allPages={hasSearch ? searchTotalPages : totalPages}
+                  onPrevClick={hasSearch ? () => this.handlePrevPage('prevSearch') : () => this.handlePrevPage('prev')}
+                  prev={'Prev'}
+                  onNextClick={hasSearch ? () => this.handleNextPage('nextSearch') : () => this.handleNextPage('next')}
+                  next={'Next'}
+                />
             }
           </MovieView>
         </Fragment>

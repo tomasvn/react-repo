@@ -5,7 +5,8 @@
 }
 
 .settings-panel {
-  .select:not(:last-child) {
-    margin-right: 1rem;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
