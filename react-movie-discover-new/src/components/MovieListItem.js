@@ -12,7 +12,7 @@ const MovieListItem = ({ poster, title, description, rating, date, lang }) => {
       <LazyLoad height={200}>
         <img className="movie-list-item__poster" src={`${URL}${poster}`} alt="Poster" />
       </LazyLoad>
-      <div class="movie-list__detail">
+      <div className="movie-list__detail">
         <h3 className="movie-list-item__title">{title}</h3>
         <p className="movie-list-item__description">{description}</p>
         <div className="movie-details">
