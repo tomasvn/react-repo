@@ -1,3 +1,7 @@
 @function typeSetting($setting: "0") {
-  @return map-get($typesetting, $setting);
+  @return map-get($typeSetting, $setting);
+}
+
+@function iconColor($color: "rating") {
+  @return map-get($iconColor, $color)
 }

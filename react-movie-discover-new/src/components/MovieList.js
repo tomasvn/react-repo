@@ -5,7 +5,7 @@ import Error from './Error';
 
 const INITIAL_NUM = 0;
 
-const MovieList = ({ isVisible, data, error, msg }) => {
+const MovieList = ({ isVisible, data, error, msg, ...rest }) => {
   if (error) {
     return <Error msg={msg} />;
   } else {
@@ -20,6 +20,7 @@ const MovieList = ({ isVisible, data, error, msg }) => {
             rating={item.vote_average}
             date={item.release_date}
             lang={item.original_language}
+            {...rest}
           />
         ))}
       </div>

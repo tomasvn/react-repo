@@ -1,6 +1,6 @@
-//=====================
-//== #MOVIE DETAILTS ==
-//=====================
+//====================
+//== #MOVIE DETAILS ==
+//====================
 
 .movie-details {
   display: flex;
@@ -15,6 +15,16 @@
 }
 
 .movie-details__rating {
-  fill: $rating-color;
+  fill: iconColor();
   margin-left: 0.5rem;
+}
+
+.movie-favourite {
+  width: 2.1rem;
+  height: 2.1rem;
+
+  &.is-active {
+    fill: iconColor("heart");
+    stroke: iconColor("heart");
+  }
 }

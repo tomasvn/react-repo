@@ -17,6 +17,11 @@
   border-radius: $radius;
 }
 
+.btn-favorite {
+  min-width: initial;
+  padding: 0;
+}
+
 .btn-toggle {
   min-width: initial;
   display: flex;
