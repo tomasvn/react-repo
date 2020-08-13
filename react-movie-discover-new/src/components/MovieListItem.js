@@ -8,20 +8,8 @@ const ASSETS = '/assets/flags/';
 
 class MovieListItem extends Component {
 
-  state = Object.freeze({
-    favorite: []
-  })
-
-  handleFavorite = () => {
-    const { poster, title, description, rating, date, lang } = this.props
-    const data = []
-
-    data.push({poster, title, description, rating, date, lang})
-    this.setState({favorite: data})
-  }
-
   render() {
-    const { poster, title, description, rating, date, lang } = this.props
+    const { poster, title, description, rating, date, lang, onClick } = this.props
 
     return(
       <div className="u-flex u-mb-20">
@@ -41,7 +29,7 @@ class MovieListItem extends Component {
               src={`${ASSETS}${lang}.svg`}
               alt={lang}
             />
-            <button onClick={this.handleFavorite} className="btn btn-favorite">
+            <button onClick={() => onClick(this.props)} className="btn btn-favorite">
               <FiHeart className="movie-favourite" />
             </button>
           </div>
@@ -58,6 +46,7 @@ MovieListItem.propTypes = {
   rating: PropTypes.number,
   date: PropTypes.string,
   lang: PropTypes.string,
+  onClick: PropTypes.func
 };
 
 export default MovieListItem;

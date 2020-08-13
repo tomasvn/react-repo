@@ -180,6 +180,12 @@ class Home extends Component {
     }
   };
 
+  handleFavorite = id => {
+    this.setState({
+      favorites: this.state.favorites.concat(id)
+    })
+  }
+
   render() {
     const {
       isVisible,
@@ -237,12 +243,12 @@ class Home extends Component {
                 </div>
               ) : null}
             </SettingsView>
-
             <MovieList
               isVisible={isVisible}
               data={hasSearch ? searchData : data}
               error={isError}
               msg={errMsg}
+              handleFavorite={this.handleFavorite}
             />
             {isVisible < data.length ? (
               <LoadMore onClick={this.handleLoadMore} name={`Load More`} />

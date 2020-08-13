@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import Heading from '../components/Heading'
 
-const Favorite = () => {
+const Favorite = (props) => {
   return(
     <Fragment>
       <Heading text="Movie Discover App" />

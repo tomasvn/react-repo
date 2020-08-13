@@ -14,4 +14,5 @@ export const initialState = Object.freeze({
   searchPage: 1,
   searchTotalPages: undefined,
   hasSearch: false,
+  favorites: []
 });

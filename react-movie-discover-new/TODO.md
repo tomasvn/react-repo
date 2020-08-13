@@ -14,6 +14,8 @@
 ## Links Section
 
 - [Movie App Tutorial](https://medium.com/@levifuller/how-to-build-a-scalable-movie-browser-app-using-react-and-redux-in-visual-studio-code-dea8bfb3eabe)
+- [Add to favorite - Example](https://codesandbox.io/s/amazing-yonath-jxfkc?file=/src/app.js)
+  - [Stackoverflow](https://stackoverflow.com/questions/57922307/react-add-user-to-list-of-favorites)
 
 ## Todos
 
@@ -35,6 +37,10 @@
 ### 25-07-2020
 
 - [x] Add search
+
+### 13-08-2020
+
+- [x] Add to favorite functionality
 
 ## Future Update
 
